@@ -7,14 +7,38 @@ class BinarySearchTree {
 
   depthFirstForEach(cb) {
     /* Your code here */
+  // RECURSIVE APPROACH
     cb(this.value);
   // Traverses the tree in depth first manner from top to bottom
   // Applies the given callback to each tree node in the process
+  // Recursion applies left at each level of the tree until it reaches the base case
     if (this.left) {
       this.left.depthFirstForEach(cb);
     }
+  // Recursion applies right at each level of the tree until it reaches the base case
     if (this.right) {
       this.right.depthFirstForEach(cb);
+    }
+  }
+
+  // ITERATIVE APPROACH
+  depthFirstForEach(cb) {
+    const stack = [];
+    stack.push(this);
+    
+    while (stack.length) {
+      const currentNode = stack.pop();
+      // if we want to achieve left-to-right depth-first order
+      // the right node needs to be pushed to the stack first
+      if (currentNode.right) {
+        stack.push(currentNode.right);
+      }
+
+      if (currentNode.left) {
+        stack.push(currentNode.left);
+      }
+
+      cb(currentNode.value);
     }
   }
 
