@@ -1,6 +1,23 @@
 const heapsort = (arr) => {
   /* Your code here */
-  
+
+// Create a new heap
+  const heap = new Heap();
+
+// Loop through the array and use the .insert method to put each element in the heap
+  arr.forEach(item => heap.insert(item));
+
+// Array to hold the data once it is sorted
+  const sortedArr = [];
+
+// While the heap's size is greater than 0 use .delete => which returns the highest
+// number in the heap and reorder the heap to maintain its integrity
+  while (heap.getSize()) {
+// Take the value returned .delete and put it at the beginning of the sorted array
+    sortedArr.unshift(heap.delete());
+  }
+// Return the sorted array
+  return sortedArr;
 };
 
 
