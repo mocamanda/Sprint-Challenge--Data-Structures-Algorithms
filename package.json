@@ -19,6 +19,6 @@
   "homepage": "https://github.com/LambdaSchool/Sprint-Challenge-Solution--Data-Structures-Algorithms/#readme",
   "devDependencies": {
     "jest": "^23.1.0",
-    "regenerator-runtime": "^0.11.1"
+    "regenerator-runtime": "^0.10.3"
   }
 }
