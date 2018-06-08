@@ -8,6 +8,8 @@ class BinarySearchTree {
   depthFirstForEach(cb) {
     /* Your code here */
     cb(this.value);
+  // Traverses the tree in depth first manner from top to bottom
+  // Applies the given callback to each tree node in the process
     if (this.left) {
       this.left.depthFirstForEach(cb);
     }
@@ -18,7 +20,21 @@ class BinarySearchTree {
 
   breadthFirstForEach(cb) {
     /* Your code here */
+  // Create queue array with root node
+    let queue = [this];
 
+  // Increment along queue, pushing child nodes, if there are any
+  for (let i = 0; i < queue.length; i++) {
+    let node = queue[i];
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+  // Invoke callback on the current node's value
+      cb (node.value);
+    }
   }
 
   insert(value) {
